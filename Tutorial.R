@@ -21,6 +21,7 @@ data = readRDS("Ensembl_df_10858")
 m = nrow(data); pi0_orr = orr.estimate.m0(data$pA, data$pB, B = 20)/m
 
 # Step 2-1. alpha selection.
+set.seed(1)
 rep_alphas = rep.alpha_0501(p1 = data$pA, p2 = data$pB, alphas = 0.05, rep_per = 0.05, M.mc = 100)
 
 # Step 2-2. DEG selection. # output = readRDS(paste0("extra/M_10000_alpha",0.05)); output$adj_alpha
