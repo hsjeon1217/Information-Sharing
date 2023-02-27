@@ -1,6 +1,6 @@
 ###############################################################################################################
 # Package preparation:
-pkgs = c("ggplot2", "Rcpp","parallel","doParallel","foreach","pipeR","tidyr","dplyr","stats")
+pkgs = c("Rcpp","parallel","doParallel","foreach","pipeR","tidyr","dplyr","stats")
 all(sapply(pkgs , require, character.only = T))
 
 # Check for missing packages and install them:
@@ -12,24 +12,9 @@ source("All_sources.R")
 
 ###############################################################################################################
 
-# Step 0. Input data:
+# Step 1. Input data:
+# pA and pB are your pilot and main datasets, respectively.
 data = readRDS("Ensembl_df_10858")
-
-# Step 1. Data exploration using a density plot
-density.plot = ggplot(data, aes(x = pA, y = pB) )  +
-  stat_density_2d(aes(fill = ..density..), geom = "raster", contour = FALSE) +
-  scale_fill_distiller(palette= "Spectral", direction=1) +
-  scale_x_continuous(expand = c(0, 0)) +
-  scale_y_continuous(expand = c(0, 0)) +
-  theme(axis.title.x = element_text(size = 20),
-        axis.title.y = element_text(size = 20),
-        axis.text.x = element_text(size = 14),
-        axis.text.y = element_text(size = 14),
-        legend.title = element_text(color = "black", size = 15, vjust = 2),
-        legend.text = element_text(size = 13),
-        axis.line = element_line(color = "darkblue", size = 1, linetype = "solid")) + 
-  labs( x = TeX('$p_1$'), y = TeX('$p_2$')) + border() + coord_fixed(ratio = 1)+ labs(fill = "Density") 
-
 
 # Step 2. Inference
 # Step 2-0. Orr estimator.
