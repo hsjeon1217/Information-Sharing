@@ -3,6 +3,10 @@
 pkgs = c("ggplot2", "Rcpp","parallel","doParallel","foreach","pipeR","tidyr","dplyr","stats")
 all(sapply(pkgs , require, character.only = T))
 
+# Check for missing packages and install them:
+new.packages <- pkgs[!(pkgs %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
 # Sources:
 source("Q_value_sources.R")
 source("R_data_generate_0826.R")
