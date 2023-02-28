@@ -25,11 +25,8 @@ m = nrow(data); pi0_orr = orr.estimate.m0(data$pA, data$pB, B = 20)/m
 set.seed(1)
 rep_alphas = rep.alpha_0501(p1 = data$pA, p2 = data$pB, alphas = nominal.alpha, rep_per = 0.05, M.mc = 10000)
 
-# Step 2-2. DEG selection. # output = readRDS(paste0("extra/M_10000_alpha",0.05)); output$adj_alpha
-# When M.mc = 10000, rep_alphas = 0.04255349.
-
+# Step 2-2. DEG selection. 
 DEG.proposed = Inference_R(p1 = data$pA, p2 = data$pB, epi0 = pi0_orr, alpha = rep_alphas)
-
 
 ###############################################################################################################
 
