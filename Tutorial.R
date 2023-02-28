@@ -33,20 +33,3 @@ DEG.proposed = Inference_R(p1 = data$pA, p2 = data$pB, epi0 = pi0_orr, alpha = r
 
 ###############################################################################################################
 
-# c.f. Data Preparation:
-# # Subset genes wrt Ensemble database.
-# p_df = read.csv("extra/RST_qNurADG.csv")
-# gene_df = read.csv("extra/2021-09-08 GeneINFO_LetsGo.csv")
-# gene_df = gene_df[!is.na(gene_df$GeneType),]
-# 
-# data = gene_df %>% left_join(., p_df, by = "GeneID") %>%
-#   dplyr::select(GeneID, pA, pB, pAB) %>%
-#   na.omit(.) # Find gene-length for GBP5.
-# 
-# p_pilot = data$pA; p_main = data$pB
-# 
-# # Input:
-# data = data.frame(pA = p_pilot, pB = p_main)
-# # saveRDS(data, "Ensembl_df_10858")
-
-
