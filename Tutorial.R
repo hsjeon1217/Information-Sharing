@@ -15,7 +15,7 @@ nominal.alpha = 0.01
 
 # Step 1. Input data:
 # pA and pB are your pilot and main datasets, respectively.
-data = data.frame(pA = rbeta(10000), pB = rbeta(10000))
+# data = data.frame(pA = rbeta(10000), pB = rbeta(10000))
 
 # Step 2. Inference
 # Step 2-0. Orr estimator.
